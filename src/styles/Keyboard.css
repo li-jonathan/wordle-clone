@@ -1,0 +1,49 @@
+
+.keyboard {
+    width: 100%;
+}
+
+.keyboard-row {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 8px;
+}
+
+.keyboard-key {
+    height: 58px;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    border-radius: 4px;
+
+    color: black;
+    background-color: var(--keyboard-color);
+
+    user-select: none;
+
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.keyboard-key:not(:last-child) {
+    margin-right: 6px;
+}
+
+.keyboard-key-spacer {
+    flex: 0.5;
+}
+
+.keyboard-key-word {
+    flex: 1.5;
+    font-size: .8rem;
+}
+
+.keyboard-key-icon {
+    flex: 1.5;
+    font-size: 1.4rem;
+}

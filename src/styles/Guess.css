@@ -1,0 +1,102 @@
+
+
+.guess {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+
+.guess-cell {
+  aspect-ratio: 1 / 1;
+  border: 2px solid #d3d6da;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.guess-cell.correct:nth-child(2),
+.guess-cell.incorrect:nth-child(2),
+.guess-cell.misplaced:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.guess-cell.correct:nth-child(3),
+.guess-cell.incorrect:nth-child(3),
+.guess-cell.misplaced:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.guess-cell.correct:nth-child(4),
+.guess-cell.incorrect:nth-child(4),
+.guess-cell.misplaced:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+.guess-cell.correct:nth-child(5),
+.guess-cell.incorrect:nth-child(5),
+.guess-cell.misplaced:nth-child(5) {
+  animation-delay: 400ms;
+}
+.filled {
+  animation: bounce 0.2s ease-in-out forwards;
+}
+
+
+.correct {
+  color: white;
+  --background: var(--color-correct);
+  --cell-border-color: var(--color-correct);
+  animation: flip 0.5s ease forwards;
+}
+
+.incorrect {
+  color: white;
+  --background: var(--color-incorrect);
+  --cell-border-color: var(--color-incorrect);
+  animation: flip 0.5s ease forwards;
+}
+
+.misplaced {
+  color: white;
+  --background: var(--color-misplaced);
+  --cell-border-color: var(--color-misplaced);
+  animation: flip 0.5s ease forwards;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  45% {
+    transform: rotateX(90deg);
+  }
+  55% {
+    transform: rotateX(90deg);
+    background: var(--background);
+    border-color: var(--cell-border-color);
+  }
+  100% {
+    transform: rotateX(0deg);
+    background: var(--background);
+    border-color: var(--cell-border-color);
+  }
+}
+
+@keyframes bounce {
+  0% { 
+    transform: scale(1);
+    border-color: #ddd;
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    border-color: #333;
+  }
+}
